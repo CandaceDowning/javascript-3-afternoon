@@ -53,15 +53,16 @@ var employees = [
 //Code Here
 
 const employeeUpdater = () => {
-  for(let key in employees)
-    if(employees.firstName === "Theo"){
-      delete employees[key]
+  for(i=employees.length-1; i>0; i--)
+    if(employees[i].firstName === "Theo"){
+      employees.splice(employees.indexOf(employees[i], 1))
     }
-    if (employees.firstName === "Lorie"){
-      employees.department = "HR"
+    else if (employees[i].firstName === "Lorie"){
+      employees[i].department = "HR"
     }
     return employees
 }
+
 
 ////////// PROBLEM 2 //////////
 
@@ -79,7 +80,17 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 
 //Code Here
 
-
+function removeDuplicates(arr){
+  for(let i=0;i<arr.length;i++){
+    for(let d=i+1;d<arr.length;d++){
+      if(arr[i] === arr[d]){
+        arr.splice(i, 1)
+        i--
+      }
+    } 
+  }
+  return arr 
+}
 
 ////////// PROBLEM 3 //////////
 
