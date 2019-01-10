@@ -19,17 +19,17 @@ var values = {
   five: ' values.'
 } 
 
-// for(var key in values) {
-//   console.log(values[key])
-// }
+for(var key in values) {
+  console.log(values[key])
+}
 
 /*
   In this next example, we are accessing the property names themselves. Uncomment the code below, run it and look at what prints in the console.
 */
 
-// for(var key in values) {
-//   console.log(key)
-// }
+for(var key in values) {
+  console.log(key)
+}
 
 
 
@@ -40,11 +40,12 @@ var values = {
 */
 
 function showValues(values) {
-  //Code Here
+  let str = ""
   for(var key in values){
-    Object.values[key].reduce((val, e)=> {val += e},0)
+    str += values[key]
   }
-}
+  return str
+};
 
 
 
@@ -60,8 +61,8 @@ function showValues(values) {
 
 function greaterThan10(obj){
   for(var key in obj){
-    if(val > 10){
-      obj.key = 0
+    if(obj[key] > 10){
+      obj[key] = 0
     }
   }
   return obj
@@ -76,7 +77,12 @@ function greaterThan10(obj){
 */
 
 //Code Here
-
+function double(obj){
+  for(var key in obj){
+    obj[key] = obj[key]*2
+  }
+  return obj
+}
 
 
 ////////// PROBLEM 4 //////////
@@ -91,7 +97,16 @@ function greaterThan10(obj){
 
 //Code Here
 
-
+function secrets(obj){
+  let str = ""
+  for(var key in obj){
+    // console.log("secrets", obj[key])
+    if(key.startsWith("sh")){
+      str += obj[key]
+    }
+  }
+return str
+};
 
 /* 
   Sometimes it's needed to delete object properties. 
