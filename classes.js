@@ -31,7 +31,15 @@
 
 //Code Here
 
-
+class Employee {
+  constructor(first, last, email, age){
+  this.first_name = first;
+  this.last_name = last;
+  this.email = email;
+  this.age = age
+  this.makeWidget = () => first + " " + last + " Widget"
+  }
+}
 
 ////////// PROBLEM 2 //////////
 
@@ -51,7 +59,21 @@
 
 //Code Here
 
-
+class Manager {
+  constructor(first, last, email, age){
+  this.first_name = first;
+  this.last_name = last;
+  this.email = email;
+  this.age = age
+  this.reports = []
+  this.makeWidget = () => first + " " + last + " Widget"
+  }
+  hire (employee) {
+    this.reports.push(employee)
+  }
+  fire (index) { 
+    this.reports.splice(index,1)}
+}
 
 ////////// PROBLEM 3 //////////
 
@@ -77,7 +99,45 @@
 
 //Code Here
 
-
+class ProgressiveManager {
+  constructor(first, last, email, age){
+  this.first_name = first;
+  this.last_name = last;
+  this.email = email;
+  this.age = age
+  this.title = "Not a manager"
+  this.bonus =  0
+  this.reports = []
+  this.bonus = 0
+  this.makeWidget = () => first + " " + last + " Widget"
+  }
+  hire (employee) {
+    this.reports.push(employee)
+    this.promoted()
+  }  
+  promoted () {
+    if(this.reports.length >100){
+      this.title = "Bestest Manager"
+    }
+    else if(this.reports.length >50){
+      this.title = "Manager Plus"
+    }
+    else if(this.reports.length >10 ){
+      this.title = "Manager"
+    }
+    else if(this.reports.length >3 ){
+      this.title = "Mostly Manager"
+    }
+    else if(this.reports.length > 0 ){
+      this.title = "Barely Manager"
+    }
+    else{this.title = "Not a Manager"}
+  }
+  fire (index) { 
+    this.reports.splice(index,1)
+    this.bonus += 100
+  }
+}
 
 ////////// PROBLEM 4 - Black Diamond //////////
 
@@ -104,4 +164,23 @@
 
 //Code Here
 
-
+class Machine {
+  constructor(){
+    this.widgets_made_count = 0
+    this.wear_and_tear_count = 0
+    this.needs_reboot = false    
+  }
+  makeWidgets(numMade){
+    this.widgets_made_count += numMade
+    this.wear_and_tear_count += (numMade/50)
+  }
+  fixMachine(){
+    this.needs_reboot = true
+  }
+  reboot(){
+    return() => {
+    this.needs_reboot = false
+    this.wear_and_tear_count -= 10
+    }
+  }
+}

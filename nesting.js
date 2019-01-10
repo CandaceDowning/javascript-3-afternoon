@@ -52,7 +52,16 @@ var employees = [
 
 //Code Here
 
-
+const employeeUpdater = () => {
+  for(let key in employees)
+    if(employees.firstName === "Theo"){
+      delete employees[key]
+    }
+    if (employees.firstName === "Lorie"){
+      employees.department = "HR"
+    }
+    return employees
+}
 
 ////////// PROBLEM 2 //////////
 
